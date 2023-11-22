@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 func SliceDelete[T any](vals []T, idx int) []T {
-	if idx < 0 || idx > len(vals) {
+	if idx < 0 || idx >= len(vals) {
 		return vals
 	}
 	res := append(vals[:idx], vals[idx+1:]...)
@@ -16,7 +16,7 @@ func main() {
 	for i := 0; i < 10; i++ {
 		s1 = append(s1, i)
 	}
-	res := SliceDelete(s1, 2)
+	res := SliceDelete(s1, 10)
 	fmt.Printf("res:%v \n", res)
 
 }
